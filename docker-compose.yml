@@ -1,0 +1,23 @@
+version: '2.1'
+
+services:
+  postgres:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=test
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123
+    mem_limit: 512m
+    ports:
+      - "5433:5432"
+    healthcheck:
+      test: ["CMD", "pg_isready", "-h", "localhost", "-p", "5454", "-U", "afcon-db-user"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
