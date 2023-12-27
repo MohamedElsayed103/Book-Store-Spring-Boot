@@ -29,14 +29,12 @@ public class CartService {
             cart = new Cart();
             cart.setUser(user);
         }
-
         // Add the book to the cart's list of books
         if (!cart.getBooks().contains(book)) {
             cart.getBooks().add(book);
             // Save the changes to the database
             cartRepository.save(cart);
         }else{
-
             throw new RuntimeException("book already exists");
         }
     }

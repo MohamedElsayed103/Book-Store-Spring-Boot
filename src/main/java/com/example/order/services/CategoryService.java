@@ -17,7 +17,7 @@ public class CategoryService {
     private final UserService userService;
 
     public Category addCategory(Category category, String userEmail) throws OptionalEmpty {
-        if (!userService.isUserAdmin(userEmail)) throw new RuntimeException("user is not admin");
+        if (!userService.isUserAdmin(userEmail)) throw new RuntimeException("User is not admin");
         Category category1 = Category.builder()
                 .id(category.getId())
                 .categoryName(category.getCategoryName())
@@ -30,7 +30,7 @@ public class CategoryService {
         categoryRepository.delete(category);
     }
 
-    public Category getCategoryByName(String name){
+   /* public Category getCategoryByName(String name){
         Optional<Category> category = categoryRepository.findByName(name);
         if (category.isPresent())
             return category.get();
@@ -39,11 +39,11 @@ public class CategoryService {
         } catch (OptionalEmpty e) {
             throw new RuntimeException(e);
         }
-    }
-    public List<Category> getAllCategories(){
+    }*/
+   /* public List<Category> getAllCategories(){
         return categoryRepository.findAll();
     }
-
+*/
     public Category getCategoryById(String id)  {
 
         Optional<Category> category =categoryRepository.findById(id);

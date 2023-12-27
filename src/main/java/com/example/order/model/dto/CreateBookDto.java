@@ -14,6 +14,7 @@ import java.util.List;
 @Builder
 public class CreateBookDto {
     private String id;
+    private String photo;
     private String title;
     private String author;
     private double price;

@@ -23,8 +23,8 @@ public class OrderService {
 
 
     public List<Order> viewOrders(String userEmail) throws OptionalEmpty {
-        if (!userService.isUserAdmin(userEmail))
-            throw new RuntimeException("User is not admin");
+        if (!userService.isUserAdmin(userEmail)) throw new RuntimeException("User is not admin");
+
         return orderRepository.findAllByStatus(Status.PENDING);
     }
 

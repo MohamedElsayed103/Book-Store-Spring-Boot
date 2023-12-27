@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/category")
 @AllArgsConstructor
 public class CategoryController {
+
     private final CategoryService categoryService;
 
     @PostMapping("/add")

@@ -15,7 +15,7 @@ public class CartController {
 
     private final CartService cartService;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<String> addToCart(@RequestParam String userName, @RequestParam String bookTitle) throws OptionalEmpty {
         cartService.addToCart(userName, bookTitle);
         return new ResponseEntity<>("Book added to the cart successfully", HttpStatus.OK);
